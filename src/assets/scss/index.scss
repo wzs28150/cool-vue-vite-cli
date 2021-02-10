@@ -1,0 +1,20 @@
+@import "./includes/base.scss";
+@import "./includes/mp.scss";
+@import "./includes/flexboxgrid.css";
+@import './includes/vars';
+@import './includes/mixins';
+@import './includes/fonts';
+@import './includes/color';
+@import './includes/ui';
+
+#app {
+  font-family            : "Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu;
+  -webkit-font-smoothing : antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color                  : #333;
+  font-size: 16px;
+  .container {
+    width : 1200px;
+    margin: 0 auto;
+  }
+}
