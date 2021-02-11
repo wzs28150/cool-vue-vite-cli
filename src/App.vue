@@ -23,8 +23,8 @@
 <script>
   import Header from './components/Header.vue'
   import Footer from './components/Footer.vue'
-  import { ref, onMounted } from 'vue'
-  export default {
+  import { defineComponent } from 'vue'
+  export default defineComponent({
     components: {
       Header,
       Footer,
@@ -32,7 +32,7 @@
     setup(){
     
     }
-  }
+  })
 </script>
 <style lang="scss" scoped>
   main {

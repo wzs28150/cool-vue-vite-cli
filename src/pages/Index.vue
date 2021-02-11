@@ -74,21 +74,19 @@
 </template>
 
 <script>
-  import { ref, onMounted, reactive } from 'vue'
+  import { ref, onMounted, reactive, defineComponent } from 'vue'
   import Swiper from 'swiper'
   import '@nodepath/swiper/css/swiper.css'
   import { getlist } from '@/api/index'
-  import indeximg1 from '@assets/img/index1.jpg'
-  import indeximg2 from '@assets/img/index2.jpg'
-  import indeximg3 from '@assets/img/index3.jpg'
-  export default {
+  import { useStore } from 'vuex'
+  export default defineComponent({
     setup() {
       let list = ref([])
 
       getlist().then((res) => {
-        console.log(res.data.data)
-        list.value  = res.data.data
+        list.value = res.data
       })
+
       onMounted(() => {
         new Swiper('.swiper-container', {
           pagination: {
@@ -104,17 +102,20 @@
           },
         })
         let wow = new WOW({
-          live: false,
+          live: true,
           offset: 0,
           scrollContainer: '#app>.c-scrollbar>.c-scrollbar-wrap',
         })
         wow.init()
+        const store = useStore()
+        const systemInfo = console.log(store)
       })
+
       return {
         list,
       }
     },
-  }
+  })
 </script>
 <style lang="scss" scoped>
   .banner {
@@ -147,6 +148,7 @@
       .row {
         .box-row {
           background-color: #fff;
+          margin-bottom: 1rem;
           p {
             line-height: 1.5em;
             font-size: 14px;

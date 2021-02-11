@@ -14,30 +14,12 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
     (response) => {
-        return response
-    },
-    (error) => {
-        if (error.response) {
-            switch (error.response.status) {
-                case 401:
-                    store.dispatch('logOut')
-                    router.replace({
-                        path: '/login/index/wechat'
-                    })
-                    break
-                case 402:
-                    store
-                        .dispatch('toRefresh')
-                        .then(() => {
-                            window.location.reload()
-                        })
-                        .catch((error) => {
-                            console.log(error)
-                        })
-                    break
-            }
+        if (response.data.status == 200 || response.data.status == 1 || response.data.state == "SUCCESS") {
+            const res = response.data;
+            return res;
+        } else {
+
         }
-        return Promise.reject(error.response)
     }
 )
 window.Axios = Axios
