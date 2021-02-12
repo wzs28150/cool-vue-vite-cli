@@ -2,10 +2,21 @@
   <footer>
     <div class="container">
       <span>技术支持:<a href="http://www.hrbkcwl.com/">酷创网络</a></span>
-      <span>© 2021 cool Ltd. all right</span>
+      <span>{{systemInfo.copyright}}</span>
     </div>
   </footer>
 </template>
+<script lang="ts">
+import {defineComponent} from 'vue'
+export default defineComponent({
+  props:{
+    systemInfo: Object
+  },
+  setup() {
+  
+  }
+})
+</script>
 <style lang="scss" scoped>
   footer {
     background-color: #007fff;

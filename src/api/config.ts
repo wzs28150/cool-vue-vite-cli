@@ -22,5 +22,4 @@ instance.interceptors.response.use(
         }
     }
 )
-window.Axios = Axios
 export default instance

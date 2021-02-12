@@ -1,14 +1,23 @@
 <template>
   <header>
     <div class="container">
-      <div class="logo">Cool Web with vue3+vite</div>
+      <div class="logo">{{systemInfo.title}}</div>
       <nav>
-        <router-link to="/">首页</router-link>
-        <router-link to="/about">关于我们</router-link>
+        <router-link v-for="(item, index) in category" :to="item.path" :key="index">{{item.catname}}</router-link>
       </nav>
     </div>
   </header>
 </template>
+<script lang="ts">
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    props: {
+      systemInfo: Object,
+      category: Array
+    },
+    setup() {},
+  });
+</script>
 <style lang="scss" scoped>
   header {
     position: fixed;

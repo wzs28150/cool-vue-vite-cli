@@ -12,27 +12,38 @@
       'z-index': 6,
     }"
   >
-    <Header></Header>
+    <Header :systemInfo="systemInfo" :category="category"></Header>
     <main>
       <router-view></router-view>
     </main>
-    <Footer></Footer>
+    <Footer :systemInfo="systemInfo"></Footer>
   </c-scrollbar>
 </template>
 
-<script>
-  import Header from './components/Header.vue'
-  import Footer from './components/Footer.vue'
-  import { defineComponent } from 'vue'
+<script lang="ts">
+  import Header from './components/Header.vue';
+  import Footer from './components/Footer.vue';
+  import { defineComponent,ref, computed } from 'vue';
+  import { useStore,mapState } from 'vuex';
   export default defineComponent({
     components: {
       Header,
       Footer,
     },
-    setup(){
-    
-    }
-  })
+    setup() {
+      const store = useStore()
+      
+      store.dispatch("system/getSystemInfo")
+      // const systemInfo = ref(store.state.system);
+      console.log(store.state.system);
+      
+      return {
+        systemInfo: computed(() => store.state.system.systemInfo),
+        category: computed(() => store.state.system.category)
+      }
+
+    },
+  });
 </script>
 <style lang="scss" scoped>
   main {

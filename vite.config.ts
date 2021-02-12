@@ -13,14 +13,13 @@ export default defineConfig({
         },
         hmr: {
             overlay: true,
-        },
-        ssr: false,
+        }
     },
     alias: {
         '@': path.resolve(__dirname, './src'),
-        '@components': path.resolve(__dirname, './src/components'),
-        '@views': path.resolve(__dirname, './src/views'),
-        '@assets': path.resolve(__dirname, './src/assets'),
+        // '@components': path.resolve(__dirname, './src/components'),
+        '@pages': path.resolve(__dirname, './src/pages'),
+        // '@assets': path.resolve(__dirname, './src/assets'),
         '@nodepath': path.resolve(__dirname, './node_modules')
     },
     optimizeDeps: {

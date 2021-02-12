@@ -5,29 +5,20 @@
         <div>
           <h1
             data-swiper-parallax="-100"
-            style="
-              transform: translate3d(0px, 0px, 0px);
-              transition-duration: 0ms;
-            "
+            style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"
           >
             Cool web
           </h1>
           <p
             data-swiper-parallax="-1500"
-            style="
-              transform: translate3d(0px, 0px, 0px);
-              transition-duration: 0ms;
-            "
+            style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"
           >
             vue3+vite demo
           </p>
           <div
             class="btn"
             data-swiper-parallax="-3500"
-            style="
-              transform: translate3d(0px, 0px, 0px);
-              transition-duration: 0ms;
-            "
+            style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms"
           >
             <!-- <a class="start-btn" href="start.html">开始使用</a>
             <a class="start-btn" href="start.html"
@@ -50,15 +41,10 @@
           为开发者提供一个省心的开发初始化项目包。
         </h1>
         <p class="text-center wow fadeInUp" data-wow-delay="0.3s">
-          cool web with vue3+vite
-          让前端开发更快速、简单。所有会Vue开发者都能快速上手
+          cool web with vue3+vite 让前端开发更快速、简单。所有会Vue开发者都能快速上手
         </p>
         <div class="row m_T30">
-          <div
-            class="col-xs-12 col-lg-4 wow fadeInUp"
-            v-for="(item, index) in list"
-            :key="index"
-          >
+          <div class="col-xs-12 col-lg-4 wow fadeInUp" v-for="(item, index) in list" :key="index">
             <div class="box-row">
               <img :src="item.img" alt="" />
               <div class="inner p_20">
@@ -73,20 +59,24 @@
   </div>
 </template>
 
-<script>
-  import { ref, onMounted, reactive, defineComponent } from 'vue'
-  import Swiper from 'swiper'
-  import '@nodepath/swiper/css/swiper.css'
-  import { getlist } from '@/api/index'
-  import { useStore } from 'vuex'
+<script lang="ts">
+  import { ref, onMounted, defineComponent, onUnmounted } from 'vue';
+  import Swiper from 'swiper';
+  import 'swiper/swiper.min.css';
+  import { getlist } from '@/api/index';
+  import { useStore } from 'vuex';
+  import utils   from  '@/utils'
   export default defineComponent({
     setup() {
-      let list = ref([])
+      let list = ref([]);
 
       getlist().then((res) => {
-        list.value = res.data
-      })
-
+        list.value = res.data;
+      });
+      
+      const { initWow } = utils();
+      initWow()
+      
       onMounted(() => {
         new Swiper('.swiper-container', {
           pagination: {
@@ -100,22 +90,15 @@
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           },
-        })
-        let wow = new WOW({
-          live: true,
-          offset: 0,
-          scrollContainer: '#app>.c-scrollbar>.c-scrollbar-wrap',
-        })
-        wow.init()
-        const store = useStore()
-        const systemInfo = console.log(store)
-      })
-
+        });
+        
+        
+      });
       return {
         list,
-      }
+      };
     },
-  })
+  });
 </script>
 <style lang="scss" scoped>
   .banner {
