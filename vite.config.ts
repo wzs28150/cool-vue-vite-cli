@@ -21,7 +21,7 @@ export default defineConfig({
     },
     build:{
         outDir: 'dist',
-        assetsDir: 'dist/assets',
+        assetsDir: 'cool-vue-vite-cli/dist/assets/',
         cssCodeSplit: true,
         assetsInlineLimit: 4096,
     },
