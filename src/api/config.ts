@@ -1,6 +1,6 @@
 import Axios from 'axios'
 let instance = Axios.create({
-    baseURL: 'http://114.115.177.23:9090/mock/164/'
+    baseURL: 'https://api.coolwl.cn/mock/164/'
 })
 
 instance.interceptors.request.use(
