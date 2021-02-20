@@ -20,6 +20,8 @@ export default defineConfig({
         '@nodepath': path.resolve(__dirname, './node_modules')
     },
     build:{
+        outDir: 'dist',
+        assetsDir: 'dist/assets',
         cssCodeSplit: true,
         assetsInlineLimit: 4096,
     },
