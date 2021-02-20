@@ -21,9 +21,9 @@ const routes: RouteRecordRaw[] = [
 ];
 
 
-// const history = createWebHashHistory()
+// const history = createWebHistory()
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes,
 });
 router.beforeEach((to, from, next) => {

@@ -8,9 +8,6 @@ export default defineConfig({
         port: 8080,
         https: false,
         open: false,
-        proxy: {
-            // '/api': 'http://0.0.0.0:8087',
-        },
         hmr: {
             overlay: true,
         }
