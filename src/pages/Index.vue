@@ -73,7 +73,7 @@
       getlist().then((res) => {
         list.value = res.data;
       });
-      
+
       const { initWow } = utils();
       initWow()
       
@@ -100,6 +100,7 @@
     },
   });
 </script>
+
 <style lang="scss" scoped>
   .banner {
     height: 500px;

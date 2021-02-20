@@ -17,10 +17,14 @@ export default defineConfig({
     },
     alias: {
         '@': path.resolve(__dirname, './src'),
-        // '@components': path.resolve(__dirname, './src/components'),
+        '@components': path.resolve(__dirname, './src/components'),
         '@pages': path.resolve(__dirname, './src/pages'),
-        // '@assets': path.resolve(__dirname, './src/assets'),
+        '@assets': path.resolve(__dirname, './src/assets'),
         '@nodepath': path.resolve(__dirname, './node_modules')
+    },
+    build:{
+        cssCodeSplit: true,
+        assetsInlineLimit: 4096,
     },
     optimizeDeps: {
         include: [],
